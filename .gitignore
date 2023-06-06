@@ -1,4 +1,4 @@
-
+*.o
 tpch-dbgen
 TPC-H.db
 sqlite

@@ -19,6 +19,6 @@ tpch-dbgen/dbgen: tpch-dbgen/makefile
 clean:
 	rm -rf sqlite TPC-H.db $(TABLE_FILES) tpch-dbgen/dbgen
 
-sqlite: driver.c sqlite3.c
+sqlite: driver.o sqlite3.o
 	gcc -o $@ $^
 
