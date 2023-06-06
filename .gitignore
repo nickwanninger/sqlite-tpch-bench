@@ -2,3 +2,5 @@
 tpch-dbgen
 TPC-H.db
 sqlite
+
+sqlite-bench

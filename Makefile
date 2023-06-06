@@ -3,6 +3,9 @@ SCALE_FACTOR?=1
 TABLES = customer lineitem nation orders partsupp part region supplier
 TABLE_FILES = $(foreach table, $(TABLES), tpch-dbgen/$(table).tbl)
 
+sqlite-bench: driver.o sqlite3.o
+	gcc -o $@ $^
+
 TPC-H.db: $(TABLE_FILES)
 	./create_db.sh $(TABLES)
 
@@ -19,6 +22,4 @@ tpch-dbgen/dbgen: tpch-dbgen/makefile
 clean:
 	rm -rf sqlite TPC-H.db $(TABLE_FILES) tpch-dbgen/dbgen
 
-sqlite: driver.o sqlite3.o
-	gcc -o $@ $^
 
